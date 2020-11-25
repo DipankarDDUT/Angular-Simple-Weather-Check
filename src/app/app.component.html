@@ -1,0 +1,44 @@
+<div class="container-fluid" >
+  <div class="row">
+
+<!-- search bar col -->
+<div class="col-md-3  search-bar">
+  <!-- Search form -->
+
+<form class="form-inline md-form mr-auto mb-4">
+  <input #city class="form-control mr-sm-2" type="text" placeholder="city name" aria-label="Search">
+<button class="btn aqua-gradient btn-rounded btn-sm my-0 bg-primary" type="submit"  (click)="getName(city.value)"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+
+</div>
+<!-- card details of weather -->
+<div class="col-md-9">
+<div class="card" *ngIf="City!=null">
+  <div class="card-columns" >
+  <div class="card bg-success" style="border-radius: 20%">
+    <div class="card-body text-center">
+       <p class="card-text font-weight-bold"><i class="fa fa-globe">Longitude:{{ data.coord.lon }}</i></p>
+	     <p class="card-text font-weight-bold"><i class="fa fa-globe">Latitude:{{ data.coord.lat }}</i></p>
+    </div>
+  </div>
+    <div class="card bg-warning" style="border-radius: 20%">
+    <div class="card-body text-center">
+      <p class="card-text" style="font-size:20px">{{ data.weather[0].main}}</p>
+    </div>
+  </div>
+ 
+  <div class="card bg-info" style="border-radius: 20%">
+    <div class="card-body text-center ">
+      <p class="card-text font-weight-bold"><i class="fa fa-tint">Humidity:{{ data.main.humidity }}</i></p>
+	   <p class="card-text  font-weight-bold"><i class="fa fa-thermometer">Temp:{{ data.main.temp-273 | number:'2.0-2' }}</i></p>
+		 <p class="card-text"><i class="fas fa-temperature-high">Temp<i class="fas fa-arrow-up"></i>:{{ data.main.temp_max-273 | number:'2.0-2'}}</i></p>
+		  <p class="card-text"><i class="fas fa-temperature-low">Temp<i class="fas fa-arrow-down"></i>:{{ data.main.temp_min-273 | number:'2.0-2'}}</i></p>
+		  
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+  </div>
+</div>
